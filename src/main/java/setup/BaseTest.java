@@ -31,12 +31,6 @@ public class BaseTest implements IDriver {
         setPageObject(appType, appiumDriver);
     }
 
-    @Parameters({"appType"})
-    @BeforeTest
-    public void beforeTest(String appType) throws Exception {
-        setPageObject(appType, appiumDriver);
-    }
-
     @AfterSuite(alwaysRun = true)
     public void tearDown() throws Exception {
         System.out.println("After");

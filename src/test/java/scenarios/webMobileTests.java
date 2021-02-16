@@ -36,6 +36,7 @@ public class webMobileTests extends BaseTest {
                 wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
         );
 
+        System.out.println("Site opening done");
         Assert.assertTrue(((WebDriver) getDriver()).getTitle().contains(company), "Wrong site is opened");
 
     }

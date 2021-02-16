@@ -18,20 +18,28 @@ public class nativeMobileTests extends BaseTest {
 
     @Parameters({"userName","password","email"})
     @Test(groups = {"native"}, description = "This is a test of registration and authorization functionality")
-    public void t2_authorizationTest(String userName, String password, String email) throws IllegalAccessException, NoSuchFieldException, InstantiationException {
+    public void t2_authorizationTest(String userName, String password, String email) throws IllegalAccessException, NoSuchFieldException, InstantiationException, InterruptedException {
         getPo().getWelement("registrationBtn").click();
+        System.out.println("Clicked registration button");
 
         getPo().getWelement("registrationEmailFld").sendKeys(email);
         getPo().getWelement("registrationUserNameFld").sendKeys(userName);
         getPo().getWelement("registrationPasswordFld").sendKeys(password);
         getPo().getWelement("registrationConfirmPasswordFld").sendKeys(password);
+        System.out.println("Filled registration data");
+
         getPo().getWelement("registrationConfirmationBtn").click();
+        System.out.println("Confirmed registration");
 
         getPo().getWelement("loginEmail").sendKeys(email);
         getPo().getWelement("loginPassword").sendKeys(password);
+        System.out.println("Filled login data");
+
         getPo().getWelement("signInBtn").click();
+        System.out.println("Log in as a " + userName);
 
         WebElement actionBar = getPo().getWelement("actionBar");
+        Thread.sleep(2000); // to show that BudgetActivity tab is opened
         /*I was unable to find a way to access a TextView of ActionBar,
         so I'm just checking if it presents. It's found by id so it should be enough*/
         Assert.assertNotEquals(actionBar, null, "Wrong page opened");
