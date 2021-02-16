@@ -1,6 +1,7 @@
 package setup;
 
 import io.appium.java_client.AppiumDriver;
+import org.aspectj.lang.annotation.Before;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 import pageObjects.PageObject;
@@ -28,7 +29,12 @@ public class BaseTest implements IDriver {
         System.out.println("Before: app type - "+appType);
         setAppiumDriver(platformName, deviceName, browserName, app);
         setPageObject(appType, appiumDriver);
+    }
 
+    @Parameters({"appType"})
+    @BeforeTest
+    public void beforeTest(String appType) throws Exception {
+        setPageObject(appType, appiumDriver);
     }
 
     @AfterSuite(alwaysRun = true)
