@@ -10,6 +10,22 @@ import setup.BaseTest;
 
 public class webMobileTests extends BaseTest {
 
+    @Test(groups = {"web"}, description = "Make sure that we've opened IANA homepage")
+    public void simpleWebTest() {
+        getDriver().get("http://iana.org"); // open IANA homepage
+
+        // Make sure that page has been loaded completely
+        new WebDriverWait(getDriver(), 10).until(
+                wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
+        );
+
+        // Check IANA homepage title
+        assert ((WebDriver) getDriver()).getTitle().equals("Internet Assigned Numbers Authority") : "This is not IANA homepage";
+
+        // Log that test finished
+        System.out.println("Site opening done");
+    }
+
     @Parameters({"company"})
     @Test(groups = {"web"}, description = "Make sure that we've googled company at google")
     public void googlingTest(String company){
@@ -20,7 +36,7 @@ public class webMobileTests extends BaseTest {
                 wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
         );
 
-        Assert.assertEquals(((WebDriver) getDriver()).getTitle().contains(company), "Wrong site is opened");
+        Assert.assertTrue(((WebDriver) getDriver()).getTitle().contains(company), "Wrong site is opened");
 
     }
 

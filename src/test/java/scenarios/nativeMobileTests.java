@@ -9,9 +9,16 @@ import setup.BaseTest;
 
 public class nativeMobileTests extends BaseTest {
 
+    @Test(groups = {"native"}, description = "This simple test just click on the Sign In button")
+    public void t1_simpleNativeTest() throws IllegalAccessException, NoSuchFieldException, InstantiationException {
+        getPo().getWelement("signInBtn").click();
+        System.out.println("Simplest Android native test done");
+
+    }
+
     @Parameters({"userName","password","email"})
     @Test(groups = {"native"}, description = "This is a test of registration and authorization functionality")
-    public void authorizationTest(String userName, String password, String email) throws IllegalAccessException, NoSuchFieldException, InstantiationException {
+    public void t2_authorizationTest(String userName, String password, String email) throws IllegalAccessException, NoSuchFieldException, InstantiationException {
         getPo().getWelement("registrationBtn").click();
 
         getPo().getWelement("registrationEmailFld").sendKeys(email);
