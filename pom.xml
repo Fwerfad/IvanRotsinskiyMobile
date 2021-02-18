@@ -57,7 +57,7 @@
         <profile>
             <id>android</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src/test/resources/androidTNG.xml</suite.file>
