@@ -8,6 +8,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import setup.BaseTest;
 
+import java.util.Locale;
+
 public class webMobileTests extends BaseTest {
 
     @Test(groups = {"web"}, description = "Make sure that we've opened IANA homepage")
@@ -28,7 +30,7 @@ public class webMobileTests extends BaseTest {
 
     @Parameters({"company"})
     @Test(groups = {"web"}, description = "Make sure that we've googled company at google")
-    public void googlingTest(String company){
+    public void googlingTest(String company) throws IllegalAccessException, NoSuchFieldException, InstantiationException {
         getDriver().get("https://www.google.com/search?q=" + company); // open IANA homepage
 
         // Make sure that page has been loaded completely
@@ -37,7 +39,10 @@ public class webMobileTests extends BaseTest {
         );
 
         System.out.println("Site opening done");
-        Assert.assertTrue(((WebDriver) getDriver()).getTitle().contains(company), "Wrong site is opened");
+
+        getPo().getWelement("input").sendKeys(company);
+
+        Assert.assertTrue(getPo().getWelement("result").getText().toUpperCase(Locale.ROOT).contains(company), "Wrong site is opened");
 
     }
 
