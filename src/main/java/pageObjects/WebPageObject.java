@@ -10,8 +10,6 @@ public class WebPageObject  {
     @AndroidFindBy(xpath = "//android.view.View[@text='www.epam.com']")
     private RemoteWebElement result;
 
-
-
     public WebPageObject(AppiumDriver appiumDriver) {
         PageFactory.initElements(appiumDriver, this);
 
