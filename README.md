@@ -1,4 +1,4 @@
-Для запуска тестов, необходимо сначала забронировать нужное устройство на https://mobilecloud.epam.com/#!/devices  
+Для запуска тестов, необходимо сначала открыть нужное устройство на https://mobilecloud.epam.com/#!/devices  
 Затем необходимо на https://mobilecloud.epam.com/#!/automation/sample выбрать нужно устройство и скопировать в androidTNG.xml, webAndroidTNG.xml, iOSTNG.xml и webiOSTNG.xml информацию об устройстве,  
 а именно platformName, platformVersion и deviceName  
 В pom.xml в корне проекта необходимо в token вписать свой токен  
