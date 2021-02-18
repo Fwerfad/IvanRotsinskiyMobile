@@ -32,7 +32,7 @@
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
-                        <ts.appium>http://localhost:4723/wd/hub</ts.appium>
+                        <ts.appium>https://EPM-TSTF:${token}@mobilecloud.epam.com/wd/hub</ts.appium>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -47,24 +47,50 @@
         </plugins>
     </build>
 
+
+
+    <properties>
+        <token></token>
+    </properties>
+
     <profiles>
         <profile>
-            <id>native</id>
+            <id>android</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/nativeTNG.xml</suite.file>
+                <suite.file>src/test/resources/androidTNG.xml</suite.file>
             </properties>
         </profile>
 
         <profile>
-            <id>web</id>
+            <id>webAndroid</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/webTNG.xml</suite.file>
+                <suite.file>src/test/resources/webAndroidTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>webiOS</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/webiOSTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>iOS</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src/test/resources/iOSTNG.xml</suite.file>
             </properties>
         </profile>
     </profiles>

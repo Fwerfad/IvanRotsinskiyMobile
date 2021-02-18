@@ -23,11 +23,11 @@ public class BaseTest implements IDriver {
         return po;
     }
 
-    @Parameters({"platformName","appType","deviceName","browserName","app"})
+    @Parameters({"platformName","appType","deviceName","browserName","app", "platformVersion"})
     @BeforeSuite(alwaysRun = true)
-    public void setUp(String platformName, String appType, String deviceName, @Optional("") String browserName, @Optional("") String app) throws Exception {
+    public void setUp(String platformName, String appType, String deviceName, @Optional("") String browserName, @Optional("") String app, @Optional String platformVersion) throws Exception {
         System.out.println("Before: app type - "+appType);
-        setAppiumDriver(platformName, deviceName, browserName, app);
+        setAppiumDriver(platformName, deviceName, browserName, app, platformVersion);
         setPageObject(appType, appiumDriver);
     }
 
@@ -37,11 +37,12 @@ public class BaseTest implements IDriver {
         appiumDriver.closeApp();
     }
 
-    private void setAppiumDriver(String platformName, String deviceName, String browserName, String app){
+    private void setAppiumDriver(String platformName, String deviceName, String browserName, String app, String platformVersion){
         DesiredCapabilities capabilities = new DesiredCapabilities();
         //mandatory Android capabilities
         capabilities.setCapability("platformName",platformName);
         capabilities.setCapability("deviceName",deviceName);
+        capabilities.setCapability("platformVersion", platformVersion);
 
         if(app.endsWith(".apk")) capabilities.setCapability("app", (new File(app)).getAbsolutePath());
 

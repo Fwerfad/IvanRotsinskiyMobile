@@ -1,12 +1,14 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Native mobile testing Suite">
-    <parameter name="appType" value="native"></parameter>
-    <parameter name="deviceName" value="emulator-5554"></parameter>
     <parameter name="platformName" value="Android"></parameter>
+    <parameter name="appType" value="native"></parameter>
+    <parameter name="deviceName" value="SONY G3112"></parameter>
+    <parameter name="platformVersion" value="8.0.0"/>
     <parameter name="app" value="src/test/resources/EPAMTestApp.apk"></parameter>
     <parameter name="userName" value="Fwerf"></parameter>
     <parameter name="email" value="afs1424ad@gmail.com"></parameter>
     <parameter name="password" value="123456qwerty"></parameter>
+
     <test name="Native tests">
         <groups>
             <run>
