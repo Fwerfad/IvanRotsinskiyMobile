@@ -4,17 +4,14 @@
     <parameter name="deviceName" value="emulator-5554"></parameter>
     <parameter name="platformName" value="Android"></parameter>
     <parameter name="app" value="src/test/resources/EPAMTestApp.apk"></parameter>
-    <parameter name="userName" value="Fwerf"></parameter>
-    <parameter name="email" value="afs1424ad@gmail.com"></parameter>
-    <parameter name="password" value="123456qwerty"></parameter>
     <test name="Native tests">
         <groups>
             <run>
                 <include name="native"/>
             </run>
         </groups>
-        <packages>
-            <package name="scenarios"/>
-        </packages>
+        <classes>
+            <class name="scenarios.nativeMobileTests"/>
+        </classes>
     </test>
 </suite>

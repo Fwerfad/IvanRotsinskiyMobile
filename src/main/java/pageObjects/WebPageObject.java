@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class WebPageObject {
 
-    @FindBy(xpath = "//*[@id='rso'")
+    @FindBy(xpath = "//*[@id='cnt']")
     private WebElement result;
 
     public WebPageObject(AppiumDriver appiumDriver) {

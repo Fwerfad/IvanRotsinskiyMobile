@@ -4,15 +4,14 @@
     <parameter name="deviceName" value="emulator-5556"></parameter>
     <parameter name="platformName" value="Android"></parameter>
     <parameter name="browserName" value="Chrome"></parameter>
-    <parameter name="company" value="EPAM"></parameter>
     <test name="Web tests">
         <groups>
             <run>
                 <include name="web"/>
             </run>
         </groups>
-        <packages>
-            <package name="scenarios"/>
-        </packages>
+        <classes>
+            <class name="scenarios.webMobileTests"/>
+        </classes>
     </test>
 </suite>
