@@ -2,8 +2,8 @@
 <suite name="Web mobile testing Suite">
     <parameter name="platformName" value="Android"></parameter>
     <parameter name="appType" value="web"></parameter>
-    <parameter name="deviceName" value="SONY G3112"></parameter>
-    <parameter name="platformVersion" value="8.0.0"/>
+    <parameter name="deviceName" value="TCL 5059D_RU"></parameter>
+    <parameter name="platformVersion" value="8.1.0"/>
     <parameter name="browserName" value="Chrome"></parameter>
     <parameter name="company" value="EPAM"></parameter>
     <test name="Web tests">
