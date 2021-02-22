@@ -2,8 +2,8 @@
 <suite name="Native mobile testing Suite">
     <parameter name="appType" value="native"></parameter>
     <parameter name="platformName" value="Android"/>
-    <parameter name="deviceName" value="TCL 5059D_RU"></parameter>
-    <parameter name="platformVersion" value="8.1.0"/>
+    <parameter name="deviceName" value="GOOGLE Pixel 2"></parameter>
+    <parameter name="platformVersion" value="10"/>
     <parameter name="app" value="src/test/resources/EPAMTestApp.apk"></parameter>
     <parameter name="userName" value="Fwerf"></parameter>
     <parameter name="email" value="afs1424ad@gmail.com"></parameter>
@@ -15,8 +15,8 @@
                 <include name="native"/>
             </run>
         </groups>
-        <packages>
-            <package name="scenarios"/>
-        </packages>
+        <classes>
+            <class name="scenarios.nativeMobileTests"></class>
+        </classes>
     </test>
 </suite>

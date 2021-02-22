@@ -2,18 +2,17 @@
 <suite name="Web mobile testing Suite">
     <parameter name="platformName" value="Android"></parameter>
     <parameter name="appType" value="web"></parameter>
-    <parameter name="deviceName" value="TCL 5059D_RU"></parameter>
-    <parameter name="platformVersion" value="8.1.0"/>
+    <parameter name="deviceName" value="GOOGLE Pixel 2"></parameter>
+    <parameter name="platformVersion" value="10"/>
     <parameter name="browserName" value="Chrome"></parameter>
-    <parameter name="company" value="EPAM"></parameter>
     <test name="Web tests">
         <groups>
             <run>
                 <include name="web"/>
             </run>
         </groups>
-        <packages>
-            <package name="scenarios"/>
-        </packages>
+        <classes>
+            <class name="scenarios.webMobileTests"/>
+        </classes>
     </test>
 </suite>

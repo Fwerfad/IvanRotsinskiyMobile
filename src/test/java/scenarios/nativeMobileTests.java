@@ -2,7 +2,6 @@ package scenarios;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import setup.BaseTest;
 
@@ -16,9 +15,8 @@ public class nativeMobileTests extends BaseTest {
             getPo().getWelement("iOSPopUp").click();
     }
 
-    @Parameters({"userName","password","email"})
-    @Test(groups = {"native"}, description = "This is a test of registration and authorization functionality")
-    public void t2_authorizationTest(String userName, String password, String email) throws IllegalAccessException, NoSuchFieldException, InstantiationException, InterruptedException {
+    @Test(groups = "native", dataProvider = "native", dataProviderClass = DataProviders.class, description = "This is a test of registration and authorization functionality")
+    public void t2_authorizationTest(String userName, String email, String password) throws IllegalAccessException, NoSuchFieldException, InstantiationException, InterruptedException {
         getDriver().hideKeyboard();
         getPo().getWelement("registrationBtn").click();
         System.out.println("Clicked registration button");

@@ -4,7 +4,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import setup.BaseTest;
 
@@ -28,18 +27,17 @@ public class webMobileTests extends BaseTest {
         System.out.println("Site opening done");
     }
 
-    @Parameters({"company"})
-    @Test(groups = {"web"}, description = "Make sure that we've googled company at google")
+    @Test(groups = "web", description = "Make sure that we've googled company at google", dataProviderClass = DataProviders.class, dataProvider = "web")
     public void googlingTest(String company) throws IllegalAccessException, NoSuchFieldException, InstantiationException {
-        getDriver().get("https://www.google.com/search?q=" + company); // open IANA homepage
-
+        getDriver().get("https://www.google.com/search?q=" + company);
         // Make sure that page has been loaded completely
         new WebDriverWait(getDriver(), 10).until(
                 wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
         );
 
-        System.out.println("Site opening done");
-        Assert.assertTrue(getPo().getWelement("result").getText().toUpperCase(Locale.ROOT).contains(company), "Wrong site is opened");
+        Assert.assertTrue(getPo().getWelement("result").getText().toUpperCase(Locale.ROOT).contains(company) &&
+                !getPo().getWelement("result").getText().contains("ничего не найдено"),
+                "Nothing relevant to " + company + " was found");
 
     }
 
