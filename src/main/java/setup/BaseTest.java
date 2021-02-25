@@ -24,7 +24,7 @@ public class BaseTest implements IDriver {
         return po;
     }
 
-    @Parameters({"platformName","appType","deviceName","browserName","appPackage", "appActivity", "bundleid", "platformVersion"})
+    @Parameters({"platformName","appType","deviceName","browserName","appPackage", "appActivity", "bundleId", "platformVersion"})
     @BeforeSuite(alwaysRun = true)
     public void setUp(String platformName, String appType, String deviceName, @Optional("") String browserName, @Optional("") String appPackage, @Optional String appActivity, @Optional String bundleid, @Optional String platformVersion) throws Exception {
         System.out.println("Before: app type - "+appType);
@@ -38,7 +38,7 @@ public class BaseTest implements IDriver {
         appiumDriver.closeApp();
     }
 
-    private void setAppiumDriver(String appType, String platformName, String deviceName, String browserName, @Optional String appPackage, @Optional String appActivity, @Optional String bundleid, String platformVersion){
+    private void setAppiumDriver(String appType, String platformName, String deviceName, String browserName, @Optional String appPackage, @Optional String appActivity, @Optional String bundleId, String platformVersion){
         DesiredCapabilities capabilities = new DesiredCapabilities();
         //mandatory Android capabilities
         capabilities.setCapability("platformName",platformName);
@@ -51,8 +51,7 @@ public class BaseTest implements IDriver {
         }
         else
             if (platformName.equals("iOS")) {
-                capabilities.setCapability("bundleid", bundleid);
-                System.out.println(bundleid);
+                capabilities.setCapability("bundleId", bundleId);
             }
             else {
                 capabilities.setCapability("appPackage", appPackage);

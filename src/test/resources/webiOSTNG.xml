@@ -3,7 +3,6 @@
     <parameter name="platformName" value="iOS"/>
     <parameter name="appType" value="web"/>
     <parameter name="deviceName" value="IPAD 11,1"/>
-    <parameter name="platformVersion" value="14.1"/>
     <parameter name="browserName" value="Safari"/>
     <test name="Web tests">
         <groups>

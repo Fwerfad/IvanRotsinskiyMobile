@@ -3,8 +3,7 @@
     <parameter name="platformName" value="iOS"/>
     <parameter name="appType" value="native"/>
     <parameter name="deviceName" value="IPAD 11,1"/>
-    <parameter name="platformVersion" value="14.1"/>
-    <parameter name="bundleid" value="com.epam.EPAMTestApp.ii"></parameter>
+    <parameter name="bundleId" value="com.epam.EPAMTestApp.ii"/>
 
     <test name="Native tests">
         <groups>
