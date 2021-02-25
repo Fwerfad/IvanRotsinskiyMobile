@@ -31,10 +31,8 @@ public class webMobileTests extends BaseTest {
     public void googlingTest(String company) throws IllegalAccessException, NoSuchFieldException, InstantiationException {
         getDriver().get("https://www.google.com/search?q=" + company);
         // Make sure that page has been loaded completely
-        new WebDriverWait(getDriver(), 10).until(
-                wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
-        );
 
+        System.out.println(getPo().getWelement("result").getText());
         Assert.assertTrue(getPo().getWelement("result").getText().toUpperCase(Locale.ROOT).contains(company) &&
                 !getPo().getWelement("result").getText().contains("ничего не найдено"),
                 "Nothing relevant to " + company + " was found");

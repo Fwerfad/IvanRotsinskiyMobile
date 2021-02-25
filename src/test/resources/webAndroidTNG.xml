@@ -2,7 +2,7 @@
 <suite name="Web mobile testing Suite">
     <parameter name="platformName" value="Android"></parameter>
     <parameter name="appType" value="web"></parameter>
-    <parameter name="deviceName" value="GOOGLE Pixel 2"></parameter>
+    <parameter name="deviceName" value="HMD GLOBAL  6.1"></parameter>
     <parameter name="platformVersion" value="10"/>
     <parameter name="browserName" value="Chrome"></parameter>
     <test name="Web tests">

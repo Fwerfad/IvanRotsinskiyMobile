@@ -24,11 +24,11 @@ public class BaseTest implements IDriver {
         return po;
     }
 
-    @Parameters({"platformName","appType","deviceName","browserName","app", "platformVersion"})
+    @Parameters({"platformName","appType","deviceName","browserName","appPackage", "appActivity", "bundleid", "platformVersion"})
     @BeforeSuite(alwaysRun = true)
-    public void setUp(String platformName, String appType, String deviceName, @Optional("") String browserName, @Optional("") String app, @Optional String platformVersion) throws Exception {
+    public void setUp(String platformName, String appType, String deviceName, @Optional("") String browserName, @Optional("") String appPackage, @Optional String appActivity, @Optional String bundleid, @Optional String platformVersion) throws Exception {
         System.out.println("Before: app type - "+appType);
-        setAppiumDriver(platformName, deviceName, browserName, app, platformVersion);
+        setAppiumDriver(appType, platformName, deviceName, browserName, appPackage, appActivity, bundleid, platformVersion);
         setPageObject(appType, appiumDriver);
     }
 
@@ -38,18 +38,26 @@ public class BaseTest implements IDriver {
         appiumDriver.closeApp();
     }
 
-    private void setAppiumDriver(String platformName, String deviceName, String browserName, String app, String platformVersion){
+    private void setAppiumDriver(String appType, String platformName, String deviceName, String browserName, @Optional String appPackage, @Optional String appActivity, @Optional String bundleid, String platformVersion){
         DesiredCapabilities capabilities = new DesiredCapabilities();
         //mandatory Android capabilities
         capabilities.setCapability("platformName",platformName);
         capabilities.setCapability("deviceName",deviceName);
         capabilities.setCapability("platformVersion", platformVersion);
 
-        if(app.endsWith(".apk")) capabilities.setCapability("app", (new File(app)).getAbsolutePath());
-
-        capabilities.setCapability("browserName", browserName);
-        capabilities.setCapability("chromedriverDisableBuildCheck","true");
-
+        if(appType.equals("web")) {
+            capabilities.setCapability("browserName", browserName);
+            capabilities.setCapability("chromedriverDisableBuildCheck","true");
+        }
+        else
+            if (platformName.equals("iOS")) {
+                capabilities.setCapability("bundleid", bundleid);
+                System.out.println(bundleid);
+            }
+            else {
+                capabilities.setCapability("appPackage", appPackage);
+                capabilities.setCapability("appActivity", appActivity);
+            }
         try {
             appiumDriver = new AppiumDriver(new URL(System.getProperty("ts.appium")), capabilities);
         } catch (MalformedURLException e) {

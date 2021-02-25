@@ -2,13 +2,10 @@
 <suite name="Native mobile testing Suite">
     <parameter name="appType" value="native"></parameter>
     <parameter name="platformName" value="Android"/>
-    <parameter name="deviceName" value="GOOGLE Pixel 2"></parameter>
+    <parameter name="deviceName" value="HMD GLOBAL  6.1"></parameter>
     <parameter name="platformVersion" value="10"/>
-    <parameter name="app" value="src/test/resources/EPAMTestApp.apk"></parameter>
-    <parameter name="userName" value="Fwerf"></parameter>
-    <parameter name="email" value="afs1424ad@gmail.com"></parameter>
-    <parameter name="password" value="123456qwerty"></parameter>
-
+    <parameter name="appPackage" value="platkovsky.alexey.epamtestapp"></parameter>
+    <parameter name="appActivity" value="platkovsky.alexey.epamtestapp.activities.LoginActivity"></parameter>
     <test name="Native tests">
         <groups>
             <run>

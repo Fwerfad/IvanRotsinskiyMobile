@@ -4,10 +4,7 @@
     <parameter name="appType" value="native"/>
     <parameter name="deviceName" value="IPAD 11,1"/>
     <parameter name="platformVersion" value="14.1"/>
-    <parameter name="app" value="src/test/resources/EPAMTestApp.apk"/>
-    <parameter name="userName" value="Fwerf"/>
-    <parameter name="email" value="afs1424ad@gmail.com"/>
-    <parameter name="password" value="123456qwerty"/>
+    <parameter name="bundleid" value="com.epam.EPAMTestApp.ii"></parameter>
 
     <test name="Native tests">
         <groups>

@@ -50,7 +50,7 @@
 
 
     <properties>
-        <token></token>
+        <token>${env.EPAM_MOBILECLOUD_TOKEN}</token>
     </properties>
 
     <profiles>

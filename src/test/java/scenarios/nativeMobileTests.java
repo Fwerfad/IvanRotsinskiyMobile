@@ -41,7 +41,7 @@ public class nativeMobileTests extends BaseTest {
         System.out.println("Log in as a " + userName);
 
         WebElement actionBar = getPo().getWelement("actionBar");
-        Thread.sleep(2000); // to show that BudgetActivity tab is opened
+        System.out.println("Opened BudgetActivity tab");
         Assert.assertTrue(actionBar.getText().contains("Budge"), "Wrong page opened");
 
     }
